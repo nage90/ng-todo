@@ -1,5 +1,4 @@
-import { Injectable } from '@angular/core';
-import {Tasks} from "../models/tasks.model";
+import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import * as _ from 'underscore';
 import 'rxjs/add/operator/distinctUntilChanged';
