@@ -1,0 +1,122 @@
+@import "~style/variables.scss";
+
+.task-list-header {
+  padding: 15px;
+
+  .field {
+    width: 280px;
+  }
+
+  .field, .checkboxes {
+    display: inline-block;
+  }
+
+  .label{
+      background-color: whitesmoke;
+  }
+
+
+  .checkboxes {
+    float: right;
+    sui-checkbox{
+      display: inline-block;
+      margin: 10px 15px 0 15px;
+      font-family: Montserrat, sans-serif;
+    }
+  }
+
+}
+
+.task-list-container {
+  max-height: calc(80vh - 223px);
+  overflow: auto;
+  border-top: 5px solid whitesmoke;
+
+
+  .task-list-item {
+    border-bottom: 1px solid whiteSmoke !important;
+    margin: 0;
+
+    .label {
+      text-transform: uppercase;
+      font-weight: 600;
+      width: 100px;
+      color: white;
+
+      &.level-0 {
+        color: white;
+        background: lighten($priorityRed, 15);
+      }
+      &.level-1 {
+        color: white;
+        background: darken($priorityRed, 5);
+      }
+      &.level-2 {
+        color: white;
+        background: darken($priorityRed, 25);
+      }
+    }
+
+    .task-name {
+      display: inline-block;
+      height: 40px;
+      line-height: 40px;
+    }
+
+    i {
+      height: 40px;
+      width: 40px;
+      line-height: 40px;
+      position: absolute;
+      top: 15px;
+      color: gray;
+      background: whitesmoke;
+      border-radius: 50%;
+      font-size: 1.2rem;
+
+      &:hover {
+        cursor: pointer;
+        color: $primaryColor;
+      }
+
+      &.trash {
+        right: 15px;
+      }
+
+      &.check {
+        right: 105px;
+      }
+
+      &.pencil {
+        right: 60px;
+      }
+
+    }
+
+    &.completed {
+      .task-name {
+        text-decoration: line-through;
+        color: lightgrey;
+      }
+
+      .check {
+        color: white;
+        background: $checkGreen;
+      }
+
+      .label {
+        opacity: 0.2;
+      }
+    }
+
+    &.edited{
+      .pencil{
+        color: white;
+        background: $editYellow;
+      }
+    }
+
+
+  }
+
+}

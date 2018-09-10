@@ -1,0 +1,22 @@
+@import "~style/variables.scss";
+
+body {
+  font-family: Montserrat, sans-serif;
+  background: rgba(whiteSmoke, 0.4);
+}
+
+@mixin css3-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -khtml-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  -o-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+
+.ui.raised.segment{
+  border: none !important;
+  @include css3-prefix("box-shadow", "3px 3px 19px 0px rgba(50, 50, 50, 0.1) !important");
+}
+

@@ -1,0 +1,48 @@
+<div class="task-list-header">
+
+  <div class="field">
+    <div class="ui labeled input">
+      <div class="ui label">
+        {{'TASK.SORT_BY' | translate}}
+      </div>
+      <sui-select class="selection"
+                  [(ngModel)]="selectedSortOption"
+                  [options]="sortOptions"
+                  #sortSelect
+                  labelField="name">
+        <sui-select-option *ngFor="let o of sortSelect.filteredOptions" [value]="o"></sui-select-option>
+      </sui-select>
+    </div>
+  </div>
+
+
+  <div class="checkboxes">
+    <sui-checkbox class="toggle" [(ngModel)]="showCompletedTasks">
+      {{'TASK.COMPLETED' | translate}}
+    </sui-checkbox>
+    <sui-checkbox class="toggle" [(ngModel)]="showCurrentTasks">
+      {{'TASK.CURRENT' | translate}}
+    </sui-checkbox>
+  </div>
+
+
+</div>
+
+<div class="task-list-container" [hidden]="!tasks || !tasks.length">
+
+  <div class="task-list-item-wrapper"
+       *ngFor="let task of tasks | sort: selectedSortOption['key'] : selectedSortOption['reversed']">
+    <div class="task-list-item ui segment raised"
+         *ngIf="displayTask(task)"
+         [ngClass]="{'completed': task.completed, 'edited': selectedTask.id === task.id}">
+      <div class="ui horizontal label" [ngClass]="'level-' + task.priority">{{'TASK.PRIORITIES.' + task.priority |
+        translate}}
+      </div>
+      <div class="task-name">{{task.name}}</div>
+      <i class="ui icon check" (click)="setCompleted(task)"></i>
+      <i class="ui icon pencil alternate" (click)="editTask(task)"></i>
+      <i class="ui icon trash" (click)="deleteTask(task)"></i>
+    </div>
+  </div>
+
+</div>

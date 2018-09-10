@@ -1,0 +1,19 @@
+{
+  "MAIN": {
+    "APP_NAME": "Győri Egyházmegye"
+  },
+  "TASK": {
+    "PRIORITY": "Priority",
+    "DESCRIPTION": "type task description here...",
+    "PRIORITIES": {
+      "0": "Low",
+      "1": "Medium",
+      "2": "High"
+    },
+    "ADD_NEW_BUTTON": "Add new task",
+    "SAVE_TASK_BUTTON": "Save task",
+    "COMPLETED": "Show completed tasks",
+    "CURRENT": "Show current tasks",
+    "SORT_BY": "Sort by"
+  }
+}

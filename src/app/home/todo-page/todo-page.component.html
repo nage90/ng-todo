@@ -1,0 +1,13 @@
+<div class="todo-page-container">
+  <div class="container">
+    <div class="ui segment raised task-list-segment">
+      <div class="todo-header">
+        <h2>My Todo List
+          <span>{{ getNow() | date: 'dd/MM/yyyy'}}</span>
+        </h2>
+      </div>
+      <app-task-editor></app-task-editor>
+      <app-task-list></app-task-list>
+    </div>
+  </div>
+</div>
