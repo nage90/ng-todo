@@ -1,2 +1,2 @@
 # ng-todo
-TODO application with Angular5+ (CLI, ES6, TypeScript, SemanticUI)
+TODO application in Angular5+ (CLI, ES6, TypeScript, SemanticUI)
