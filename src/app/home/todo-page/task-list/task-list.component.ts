@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Task} from "../../../shared/models/task.model";
 import {TaskService} from "../../../shared/service/task.service";
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-task-list',
@@ -32,18 +33,33 @@ export class TaskListComponent{
 
   }
 
+  getTaskList(){
+
+    if(this.selectedSortOption['reversed']){
+      return _.sortBy(this.tasks, this.selectedSortOption['key']).reverse();
+    }
+
+    return _.sortBy(this.tasks, this.selectedSortOption['key']);
+  }
+
+
   initSortOptions() {
     this.sortOptions = [
       {
-        name: "date of creation",
+        name: "date of creation (ascending)",
         key: "id"
       },
       {
-        name: "priority",
+        name: "date of creation (descending)",
+        key: "id",
+        reversed: true
+      },
+      {
+        name: "priority (ascending)",
         key: "priority"
       },
       {
-        name: "priority (reversed)",
+        name: "priority (descending)",
         key: "priority",
         reversed: true
       }
@@ -90,8 +106,6 @@ export class TaskListComponent{
     }
 
     return false;
-
-
   }
 
 

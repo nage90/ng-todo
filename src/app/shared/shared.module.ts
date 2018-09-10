@@ -6,8 +6,7 @@ import {RouterModule} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
 import {SuiCheckboxModule, SuiSelectModule} from 'ng2-semantic-ui';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {LocalizedDatePipe} from './pipes/localized-date-pipe';
-import {ArraySortPipe} from './pipes/sort-by.pipe';
+
 
 @NgModule({
   imports: [
@@ -22,16 +21,13 @@ import {ArraySortPipe} from './pipes/sort-by.pipe';
     TranslateModule
   ],
   declarations: [
-    LocalizedDatePipe,
-    ArraySortPipe
+
   ],
   exports: [
     TranslateModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    LocalizedDatePipe,
-    ArraySortPipe,
     SuiSelectModule,
     SuiCheckboxModule
   ],

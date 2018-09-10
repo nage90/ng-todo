@@ -30,8 +30,10 @@
 
 <div class="task-list-container" [hidden]="!tasks || !tasks.length">
 
+  <!--<div class="task-list-item-wrapper"-->
+       <!--*ngFor="let task of tasks | sort: selectedSortOption['key'] : selectedSortOption['reversed']">-->
   <div class="task-list-item-wrapper"
-       *ngFor="let task of tasks | sort: selectedSortOption['key'] : selectedSortOption['reversed']">
+       *ngFor="let task of getTaskList()">
     <div class="task-list-item ui segment raised"
          *ngIf="displayTask(task)"
          [ngClass]="{'completed': task.completed, 'edited': selectedTask.id === task.id}">

@@ -7,7 +7,6 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppComponent} from './app.component';
 import {SharedModule} from './shared';
-import 'froala-editor/js/froala_editor.pkgd.min.js';
 
 import * as $ from 'jquery';
 import {HomeModule} from "./home/home.module";
