@@ -86,6 +86,10 @@ export class TaskListComponent{
     this.taskService.selectedTaskSubject.next(task);
   }
 
+  getTaskDate(task){
+    return new Date(task.id);
+  }
+
 
   displayTask(task) {
 

@@ -1,2 +1,13 @@
 @import "~style/variables.scss";
 
+
+footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background: ghostwhite;
+  border-top: 1px solid lightgrey;
+}
+

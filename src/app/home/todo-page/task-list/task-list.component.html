@@ -1,4 +1,4 @@
-<div class="task-list-header">
+<header class="task-list-header">
 
   <div class="field">
     <div class="ui labeled input">
@@ -26,23 +26,32 @@
   </div>
 
 
-</div>
+</header>
 
-<div class="task-list-container" [hidden]="!tasks || !tasks.length">
+<section class="task-list-container" [hidden]="!tasks || !tasks.length">
 
   <div class="task-list-item-wrapper"
        *ngFor="let task of getTaskList()">
+
     <div class="task-list-item ui segment raised"
          *ngIf="displayTask(task)"
          [ngClass]="{'completed': task.completed, 'edited': selectedTask.id === task.id}">
-      <div class="ui horizontal label" [ngClass]="'level-' + task.priority">{{'TASK.PRIORITIES.' + task.priority |
-        translate}}
+      <label class="ui horizontal label"
+             [ngClass]="{'yellow': task.priority === 0,
+                         'orange': task.priority === 1,
+                         'red': task.priority === 2}">
+        {{'TASK.PRIORITIES.' + task.priority | translate}}
+      </label>
+
+      <h5 class="task-name overflow-ellipsis">{{task.name}}</h5>
+
+      <div class="list-item-right-side">
+        <p class="date">{{ getTaskDate(task) | date : 'mediumTime'}}</p>
+        <i class="ui icon check" (click)="setCompleted(task)"></i>
+        <i class="ui icon pencil alternate" (click)="editTask(task)"></i>
+        <i class="ui icon trash" (click)="deleteTask(task)"></i>
       </div>
-      <div class="task-name">{{task.name}}</div>
-      <i class="ui icon check" (click)="setCompleted(task)"></i>
-      <i class="ui icon pencil alternate" (click)="editTask(task)"></i>
-      <i class="ui icon trash" (click)="deleteTask(task)"></i>
     </div>
   </div>
 
-</div>
+</section>

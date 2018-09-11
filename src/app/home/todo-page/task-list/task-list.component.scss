@@ -11,27 +11,34 @@
     display: inline-block;
   }
 
-  .label{
-      background-color: whitesmoke;
+  .label {
+    background-color: whitesmoke;
   }
-
 
   .checkboxes {
     float: right;
-    sui-checkbox{
+    sui-checkbox {
       display: inline-block;
       margin: 10px 15px 0 15px;
       font-family: Montserrat, sans-serif;
     }
   }
 
+  @include media-breakpoint-down(md) {
+    .checkboxes {
+      float: unset;
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+
 }
 
 .task-list-container {
-  max-height: calc(80vh - 223px);
+  max-height: calc(80vh - 290px);
   overflow: auto;
   border-top: 5px solid whitesmoke;
-
+  width: 100%;
 
   .task-list-item {
     border-bottom: 1px solid whiteSmoke !important;
@@ -42,53 +49,42 @@
       font-weight: 600;
       width: 100px;
       color: white;
-
-      &.level-0 {
-        color: white;
-        background: lighten($priorityRed, 15);
-      }
-      &.level-1 {
-        color: white;
-        background: darken($priorityRed, 5);
-      }
-      &.level-2 {
-        color: white;
-        background: darken($priorityRed, 25);
-      }
+      margin-top: 10px;
+      float: left;
     }
 
     .task-name {
       display: inline-block;
       height: 40px;
       line-height: 40px;
+      width: calc(100% - 400px);
     }
 
-    i {
-      height: 40px;
-      width: 40px;
-      line-height: 40px;
-      position: absolute;
-      top: 15px;
-      color: gray;
-      background: whitesmoke;
-      border-radius: 50%;
-      font-size: 1.2rem;
+    .list-item-right-side {
+      float: right;
 
-      &:hover {
-        cursor: pointer;
-        color: $primaryColor;
+      .date {
+        display: inline-block;
+        color: gray;
+        margin-right: 10px;
       }
 
-      &.trash {
-        right: 15px;
-      }
+      i {
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        top: 15px;
+        color: gray;
+        background: whitesmoke;
+        border-radius: 50%;
+        font-size: 1.2rem;
 
-      &.check {
-        right: 105px;
-      }
+        &:hover {
+          cursor: pointer;
+          color: $primaryColor;
+        }
 
-      &.pencil {
-        right: 60px;
       }
 
     }
@@ -100,8 +96,8 @@
       }
 
       .check {
-        color: white;
-        background: $checkGreen;
+        color: white !important;
+        background: $checkGreen !important;
       }
 
       .label {
@@ -109,13 +105,12 @@
       }
     }
 
-    &.edited{
-      .pencil{
-        color: white;
-        background: $editYellow;
+    &.edited {
+      .pencil {
+        color: white !important;
+        background: $editYellow !important;
       }
     }
-
 
   }
 

@@ -20,3 +20,9 @@ body {
   @include css3-prefix("box-shadow", "3px 3px 19px 0px rgba(50, 50, 50, 0.1) !important");
 }
 
+.overflow-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+

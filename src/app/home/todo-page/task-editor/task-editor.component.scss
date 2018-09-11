@@ -2,21 +2,9 @@
 
 .task-editor-form-container {
   padding: 15px;
-
-  .button {
-
-    &.level-0 {
-      color: lighten($priorityRed, 15) !important;
+  .buttons{
+    .button {
+      border-radius: 0 !important;
     }
-    &.level-1 {
-      color: darken($priorityRed, 5) !important;
-
-    }
-    &.level-2 {
-      color: darken($priorityRed, 25) !important;
-
-    }
-
   }
-
 }

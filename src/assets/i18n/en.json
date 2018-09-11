@@ -1,6 +1,8 @@
 {
   "MAIN": {
-    "APP_NAME": "My Todo List"
+    "APP_NAME": "My Todo List",
+    "FOOTER_TEXT": "NG TODO by Geza Nagy",
+    "LINK": "https://github.com/nage90/ng-todo"
   },
   "TASK": {
     "PRIORITY": "Priority",

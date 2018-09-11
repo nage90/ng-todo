@@ -1,27 +1,28 @@
-<div class="ui task-editor-form-container">
+<section class="ui task-editor-form-container">
 
   <form class="ui form" [formGroup]="taskForm" (ngSubmit)="saveTask()">
 
     <div class="field">
       <div class="ui action input">
         <input formControlName="name" type="text" placeholder="{{'TASK.DESCRIPTION' | translate}}">
-        <div class="ui basic buttons">
-          <div class="ui button level-0" [ngClass]="{'active': taskForm.value.priority === 0}" (click)="setPriority(0)">
+        <div class="ui buttons">
+          <div class="ui button yellow" [ngClass]="{'active': taskForm.value.priority === 0, 'basic': taskForm.value.priority !== 0}" (click)="setPriority(0)">
             {{'TASK.PRIORITIES.0' | translate}}
           </div>
-          <div class="ui button level-1" [ngClass]="{'active': taskForm.value.priority === 1}" (click)="setPriority(1)">
+          <div class="ui button orange" [ngClass]="{'active': taskForm.value.priority === 1, 'basic': taskForm.value.priority !== 1}" (click)="setPriority(1)">
             {{'TASK.PRIORITIES.1' | translate}}
           </div>
-          <div class="ui button level-2" [ngClass]="{'active': taskForm.value.priority === 2}" (click)="setPriority(2)">
+          <div class="ui button red" [ngClass]="{'active': taskForm.value.priority === 2, 'basic': taskForm.value.priority !== 2}" (click)="setPriority(2)">
             {{'TASK.PRIORITIES.2' | translate}}
           </div>
         </div>
       </div>
     </div>
-    <button class="fluid ui button primary" ngClass="{'disabled' : !taskForm.valid}"
+    <button class="ui button primary" ngClass="{'disabled' : !taskForm.valid}"
             [disabled]="!taskForm.valid">
       <i class="plus icon"></i>
-      {{'TASK.ADD_NEW_BUTTON' | translate}}
+      <span *ngIf="!editedTask">{{'TASK.ADD_NEW_BUTTON' | translate}}</span>
+      <span *ngIf="editedTask">{{'TASK.SAVE_TASK_BUTTON' | translate}}</span>
     </button>
   </form>
-</div>
+</section>
